@@ -3,6 +3,12 @@ Basic repo containing Ansible plays to deliver a tenant config to the fabric, en
 
 To try to cover as much as possible I have included different vendors where possible
 
+### Pre-requisites
+- python >= 2.7.9
+- ansible >= 2.4.0 (can use a venv if you feel brave)
+- python f5sdk module
+
+### Topology
 Basic topology looks like this: 
 ```text
       Classical L2 Switching      +                 ACI Switching/Routing/Faffery
@@ -49,5 +55,20 @@ Port Map:
 | ASA 55xx Core FW      | 8         | System Leaf 103 | 1          | Internal Firewall LACP Member `port-channel 1`    |
 | ASA 55xx Core FW      | 8         | System Leaf 104 | 1          | Internal Firewall LACP Member `port-channel 1`    |
 | ESXi Host             | 0         | System Leaf 103 | 16         | Internal Compute Resource MAC-Pinned Port-channel | 
-| ESXi Host             | 0         | System Leaf 104 | 16         | Internal Compute Resource MAC-Pinned Port-channel |
- 
+| ESXi Host             | 1         | System Leaf 104 | 16         | Internal Compute Resource MAC-Pinned Port-channel |
+
+---
+##Basic Use
+1) In the base of the repo validate the port map reflects your environment (use the port map for search and replace I guess?)
+2) Run the `playme.yaml` wrapper with `tags=all`
+3) Wait for the ~~sky to fall~~ build process to complete
+4) ~~scream at your console~~ Celebrate
+
+###Advanced Use
+Tags:
+- all: run the playbook end to end - skip nothing - do everything
+- bindings: run just the sections that would be required when adding/changing/modifying a concrete device
+- l3out: run just the sections that would be required when adding/changing/modifying an l3out
+- epgs: run just the sections that would be required when adding/changing an EPG
+- contracts: run just the sections that would be required when adding/changing/mapping a contract of filter
+
