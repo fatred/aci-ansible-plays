@@ -1,4 +1,4 @@
-#aci-ansible-plays
+# aci-ansible-plays
 Basic repo containing Ansible plays to deliver a tenant config to the fabric, end to end.
 
 To try to cover as much as possible I have included different vendors where possible
@@ -58,13 +58,13 @@ Port Map:
 | ESXi Host             | 1         | System Leaf 104 | 16         | Internal Compute Resource MAC-Pinned Port-channel |
 
 ---
-##Basic Use
+## Basic Use
 1) In the base of the repo validate the port map reflects your environment (use the port map for search and replace I guess?)
 2) Run the `playme.yaml` wrapper with `tags=all`
 3) Wait for the ~~sky to fall~~ build process to complete
 4) ~~scream at your console~~ Celebrate
 
-###Advanced Use
+### Advanced Use
 Tags:
 - all: run the playbook end to end - skip nothing - do everything
 - bindings: run just the sections that would be required when adding/changing/modifying a concrete device
