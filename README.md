@@ -78,4 +78,5 @@ Tags:
 - l3out: run just the sections that would be required when adding/changing/modifying an l3out
 - epgs: run just the sections that would be required when adding/changing an EPG
 - contracts: run just the sections that would be required when adding/changing/mapping a contract of filter
+- border: run just the sections that configures adc/public nat for inbound traffic to tenant
 
